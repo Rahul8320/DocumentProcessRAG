@@ -33,14 +33,15 @@ Update this environment variables
 4. Activating the virtual environment 
 
     ```bash
-    .\venv\Scripts\Activate  (for Windows)
-    source .venv/bin/activate (for Linux and Mac)
+    .\venv\Scripts\Activate       (for Windows)
+    source .venv/bin/activate     (for Linux and Mac)
     ```
 
 5. Running the application
 
     ```bash
-    streamlit run main.py
+    streamlit run .\src\main.py    (for Windows)
+    streamlit run ./src/main.py    (for Linux and Mac)
     ```
 
 ## Tools and Technologies Used

@@ -1,6 +1,6 @@
-def main():
-    print("Hello from document RAG!")
+import streamlit as st
 
-
-if __name__ == "__main__":
-    main()
+st.header("Document Processing RAG Application 🚀")
+st.write(
+    "Process multiple documents like pdf, image or urls and chat with this documents by using LLM 🎉"
+)
