@@ -9,11 +9,38 @@ Process multiple documents like pdf, image or urls and chat with this documents 
 
 ## Local Development Setup
 
-1. Clone this git repo and change directory to this folder.
+1. Clone this git repo and change directory to this folder
 
     ```bash
-    git clone http://rahul8320.github.com/cho.git
+    git clone https://github.com/Rahul8320/DocumentProcessRAG.git
     cd DocumentProcessRAG
+    ```
+
+2. Install python packages
+
+    ```bash
+    uv sync 
+    ```
+
+3. Add env variables
+
+    ```bash
+    cp .env.sample .env
+    ```
+
+Update this environment variables
+
+4. Activating the virtual environment 
+
+    ```bash
+    .\venv\Scripts\Activate  (for Windows)
+    source .venv/bin/activate (for Linux and Mac)
+    ```
+
+5. Running the application
+
+    ```bash
+    streamlit run main.py
     ```
 
 ## Tools and Technologies Used

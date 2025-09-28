@@ -1,0 +1,11 @@
+{
+    "cSpell.words": [
+        "Streamlit"
+    ],
+    "editor.fontSize": 16,
+    "editor.formatOnSave": true,
+    "files.autoSave": "afterDelay",
+    "editor.wordWrap": "on",
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "charliermarsh.ruff"
+}
