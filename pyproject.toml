@@ -5,10 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "langchain-community>=0.3.30",
-    "langchain-text-splitters>=0.3.11",
-    "langgraph>=0.6.7",
-    "python-dotenv>=1.1.1",
-    "langchain-openai>=0.3.33",
-    "langchain-chroma>=0.2.6",
+    "langchain>=1.2.14",
+    "langchain-chroma>=1.1.0",
+    "langchain-community>=0.4.1",
+    "langchain-openai>=1.1.12",
+    "langchain-text-splitters>=1.1.1",
+    "python-dotenv>=1.2.2",
 ]
