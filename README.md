@@ -1,6 +1,6 @@
 # Document Processing RAG Application
 
-Process multiple documents like pdf, image or urls and chat with this documents by using LLM.
+Process multiple documents like pdf, image or text file and chat with this documents by using LLM.
 
 ## Requirements
 
@@ -44,15 +44,21 @@ Update this environment variables
     streamlit run ./src/main.py    (for Linux and Mac)
     ```
 
+## Prepare sample text file
+
+Run the `prepare_data` script to generate txt file from wikipedia
+
+    ```bash
+    uv run .\Script\prepare_data.py
+    ```
+
 ## Tools and Technologies Used
 
  - [Python](https://www.python.org)
  - [uv](https://docs.astral.sh/uv)
- - [Streamlit](https://streamlit.io)
  - [LangChain](https://python.langchain.com/docs/introduction)
 
 
 ## Related Blogs and Videos
 
- - [Build a Retrieval Augmented Generation (RAG) App](https://python.langchain.com/docs/tutorials/rag/)
- - [Chat With Multiple PDF Documents With LangChain And Google Gemini Pro](https://www.youtube.com/watch?v=uus5eLz6smA&list=PLZoTAELRMXVORE4VF7WQ_fAl0L1Gljtar&index=14)
+ - [Youtube Playlist](https://www.youtube.com/watch?v=63B-3rqRFbQ&list=PLNIQLFWpQMRUMjxfe8o6g3uzJ6LH_VotY)

@@ -1,11 +1,12 @@
 {
     "cSpell.words": [
+        "dotenv",
         "embeddinggemma",
         "ollama",
         "qwen",
         "Streamlit"
     ],
-    "editor.fontSize": 16,
+    "editor.fontSize": 17,
     "editor.formatOnSave": true,
     "files.autoSave": "afterDelay",
     "editor.wordWrap": "on",

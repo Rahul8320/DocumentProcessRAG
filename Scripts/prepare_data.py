@@ -64,7 +64,6 @@ def fetch_multiple_companies(companies: List[str]) -> None:
 
 companies: List[str] = [
     "Google",
-    "Nvidia",
     "Microsoft",
 ]
 
