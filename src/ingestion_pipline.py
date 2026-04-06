@@ -20,7 +20,12 @@ def load_text_files(folder_path: str = "docs") -> List[Document]:
         raise FileNotFoundError(f"The directory {folder_path} does not exists.")
 
     # Load all *.txt files from the directory
-    loader = DirectoryLoader(path=folder_path, glob="*.txt", loader_cls=TextLoader)
+    loader = DirectoryLoader(
+        path=folder_path,
+        glob="*.txt",
+        loader_cls=TextLoader,
+        loader_kwargs={"encoding": "utf-8"},
+    )
     documents = loader.load()
 
     if len(documents) == 0:
@@ -79,7 +84,7 @@ def main() -> None:
     documents = load_text_files(folder_path="docs")
 
     # 2. Chunking the files
-    chunks = split_documents(documents=documents, chunk_size=500, chunk_overlap=50)
+    chunks = split_documents(documents=documents, chunk_size=800)
 
     # 3. Embedding and Storing in Vector DB
     create_vector_store(chunks=chunks)
@@ -88,7 +93,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as ex:
-        print(f"Error: {ex}")
+    main()

@@ -45,9 +45,7 @@ def fetch_full_wikipedia_page(title: str, folder: str = "docs") -> None:
             return
 
         os.makedirs(folder, exist_ok=True)
-        filename: str = os.path.join(
-            folder, f"{title.replace('(company)', '').replace(' ', '_').strip()}.txt"
-        )
+        filename: str = os.path.join(folder, f"{title.replace(' ', '_')}.txt")
 
         with open(filename, "w", encoding="utf-8") as f:
             f.write(f"Title: {title}\n\n")
@@ -62,9 +60,6 @@ def fetch_multiple_companies(companies: List[str]) -> None:
         time.sleep(1)
 
 
-companies: List[str] = [
-    "Google",
-    "Microsoft",
-]
+companies: List[str] = ["Google", "Microsoft", "SpaceX", "Tesla", "Nvidia"]
 
 fetch_multiple_companies(companies)
