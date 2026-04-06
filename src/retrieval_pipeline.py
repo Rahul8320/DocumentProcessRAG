@@ -1,8 +1,11 @@
 import os
 from dotenv import load_dotenv
 
+from langchain.messages import HumanMessage, SystemMessage
 from langchain_chroma import Chroma
-from langchain_ollama import OllamaEmbeddings
+from langchain_ollama import OllamaEmbeddings, OllamaLLM
+from langchain_core.language_models.base import LanguageModelInput
+
 
 load_dotenv()
 
@@ -26,10 +29,25 @@ db = Chroma(
 query = "What was NVIDIA's first graphics accelerator called?"
 
 retriever = db.as_retriever(search_kwargs={"k": 3})
-
 relevant_docs = retriever.invoke(query)
 
-print(f"User Query: {query}")
-print(f"{'-' * 10}-Context-{'-' * 10}")
+context: str = ""
+
 for i, doc in enumerate(relevant_docs, 1):
-    print(f"Document {i}:\n{doc.page_content}\n")
+    context += f"Document {i}:\n{doc.page_content}\n"
+
+model = OllamaLLM(base_url=os.environ.get("OLLAMA_BASE_URL"), model="gemma3:1b")
+
+messages: LanguageModelInput = [
+    SystemMessage(content="You are a helpful assistant"),
+    HumanMessage(
+        content=f"""Based on the following documents, please answer this question: 
+                    Query: '{query}'. 
+                    Documents: '{context}'
+                    Please provided a clear, helpful answer using only the information from these documents. If you can't find the answer in the documents, say 'I don't have enough information to answer this question.' """
+    ),
+]
+
+result = model.invoke(messages)
+
+print(f"Response: {result}")
