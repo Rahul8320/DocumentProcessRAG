@@ -1,9 +1,22 @@
-from langchain_ollama import OllamaEmbeddings
+from core.llm import LLM
+from core.llm_message import LLMMessage
 
 
-embedding = OllamaEmbeddings(
-    model="qwen3-embedding:0.6b", base_url="http://localhost:11434"
-)
+llm = LLM()
 
-vector = embedding.embed_query("Once upon a time, there was a cat.")
+vector = llm.get_embedding(text="Once upon a time, there was a cat.")
 print(vector[:5])
+
+message = llm.get_chat(
+    messages=[
+        LLMMessage(
+            role="system",
+            content="You are a very intelligent and mindful assistance. Read the user query very carefully, think deeply, give short, precise and intelligent answer.",
+        ),
+        LLMMessage(
+            role="user",
+            content="How many character 'a' is appeared in this sentence?",
+        ),
+    ],
+)
+print(message)
